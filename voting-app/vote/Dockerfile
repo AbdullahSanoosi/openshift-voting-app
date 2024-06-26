@@ -18,7 +18,7 @@ RUN useradd -u 1004390001 -r -g 0 -d /app -s /sbin/nologin \
     chown -R 1004390001:0 /app && \
     chmod -R g+rw /app
 
-USER 1001
+USER 1004390001
 
 # Install our requirements.txt
 COPY src/requirements.txt /app/requirements.txt
