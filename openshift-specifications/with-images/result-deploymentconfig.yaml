@@ -16,7 +16,7 @@ spec:
         app: result
     spec:
       securityContext:
-        runAsUser: 1001
+        runAsUser: 1004390001
       containers:
         - name: result
           image: mgrillet/result:latest
