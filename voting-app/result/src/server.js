@@ -51,8 +51,8 @@ function getVotes(client) {
     if (err) {
       console.error("Error performing query: " + err);
     } else {
-      console.log("Votes fetched from database: ", result.rows); //To print the data fetched from the database..
       var votes = collectVotesFromResult(result);
+      console.log("Emitting votes to clients: ", votes); //new line
       io.sockets.emit("scores", JSON.stringify(votes));
     }
 
