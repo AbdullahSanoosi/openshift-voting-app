@@ -89,3 +89,15 @@ server.listen(port, function () {
   var port = server.address().port;
   console.log('App running on port ' + port);
 });
+
+app.get('/test-db', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT 1');
+    client.release();
+    res.send(`DB Connection Test: ${result.rows[0]['?column?']}`);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Database connection failed');
+  }
+});
